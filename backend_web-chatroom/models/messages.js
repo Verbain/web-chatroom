@@ -1,4 +1,4 @@
-class User {
+class Messages {
     constructor(id,name,message){
         this.id = id;
         this.name = name;
