@@ -13,4 +13,8 @@ app.use(bodyParser.json());
 
 app.use('/api',userRoutes.routes);
 
+app.get('/',(req,res) => {
+    res.send('hello')
+});
+
 app.listen(config.port, () => console.log('App listening on url : ' + config.url))

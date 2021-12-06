@@ -1,7 +1,7 @@
 class User {
-    constructor(id,name,password){
+    constructor(id,name,message){
         this.id = id;
         this.name = name;
-        this.password = password;
+        this.message = message;
     }
 }
