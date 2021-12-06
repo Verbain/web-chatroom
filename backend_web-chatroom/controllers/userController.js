@@ -1,15 +1,18 @@
 const User = require('../models/user');
 const {} = require('firebase-admin/firestore');
 const db = require('../db');
-const collectionRef = collection(db,"users")
+const collection = require('../db');
+
 const addUser = async (req,res,next) =>{
-    try {
-        const data = req.body;
-        await addDoc(collectionRef,{"name":"sebastien","password":"test"});
+    
+        const collectionRef = collection(db, "users")
+        const name = req.body.name;
+        console.log(name)
+        const password = req.body.password;
+        console.log(password)
+        const payload = { name, password }
+        await addDoc(collectionRef, payload);
         res.send('Record saved successfuly');
-    } catch {
-        res.status(400);
-    }
 }
 
 module.exports = {
