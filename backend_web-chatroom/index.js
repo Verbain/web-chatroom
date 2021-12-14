@@ -5,6 +5,7 @@ const config = require('./config');
 const messagesRoutes = require('./routes/messagesRoutes');
 const roomsRoutes = require('./routes/roomsRoutes')
 
+
 const app = express();
 
 app.use(express.json());

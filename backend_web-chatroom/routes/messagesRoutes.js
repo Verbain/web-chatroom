@@ -1,5 +1,6 @@
 const express = require('express');
 const { sendMessage } = require('../controllers/messagesController');
+const bodyParser = require('body-parser');
 
 const router = express.Router();
 
