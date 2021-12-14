@@ -4,9 +4,7 @@ const bodyParser = require('body-parser');
 
 const router = express.Router();
 
-const urlEncodedParser = bodyParser.urlencoded({extended:false})
-
-router.post('/send/message', urlEncodedParser, sendMessage);
+router.post('/send/message/:room', sendMessage);
 
 module.exports = {
     routes: router
