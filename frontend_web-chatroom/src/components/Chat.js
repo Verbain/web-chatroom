@@ -1,9 +1,8 @@
-import { React, useState, useEffect, useRef } from 'react';
+import { React, useState, useRef } from 'react';
 import './Chat.css'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { collection, query, orderBy, limit } from '@firebase/firestore';
 import db from "../firebase";
-import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import axios from 'axios';
 
@@ -19,15 +18,17 @@ function Chat() {
         }
 
             return (
-              <div className="message">
+              <div ref={ dummy } className="message">
                 <p>{hours}:{minutes} | <strong>{props.message.name}</strong> : {text}</p>
               </div>
             )
     }
 
+    const roomId = localStorage.getItem("roomId")
+
     const dummy = useRef()
 
-    const messagesRef = collection(db, `/messages`);
+    const messagesRef = collection(db, `/rooms/${roomId}/messages`);
     
     const q = query(messagesRef, orderBy("createdAt", "asc"), limit(25));
   
@@ -40,14 +41,13 @@ function Chat() {
     const sendMessage = async(e) => {
       e.preventDefault();
         const timeStamp = new Date();
-        console.log(timeStamp)
         const payload = {
             pseudo: formValuePseudo,
             message: formValueMessage,
             createdAt: timeStamp,
         }
       
-      axios.post('http://localhost:3001/api/send/message', payload)
+      axios.post(`http://localhost:3001/api/send/message/${roomId}`, payload)
         
       setFormValuePseudo('');
       setFormValueMessage('');
@@ -61,7 +61,6 @@ function Chat() {
             <div className="chat">
                 <div>
                     { messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-                    <div ref={ dummy }></div>
                 </div>
             </div>
             <div className="chat-input">

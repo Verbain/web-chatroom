@@ -18,22 +18,25 @@
     padding: 10px;
 }
   
-.sidebar-li{
+.sidebar-li button{
     height: 10vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 22px;
-}
-  
-.sidebar-li a{
+    border: none;
+    background-color: transparent;
     color: white;
+    cursor: pointer;
 }
 
-.sidebar-li:hover{
+
+.sidebar-li:hover, .sidebar-li button:hover{
     background-color: #1F1B24;
     cursor: pointer;
 }
+
 
 .sidebar-div{
     font-size: 24px;
