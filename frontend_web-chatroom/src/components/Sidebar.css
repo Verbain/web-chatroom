@@ -6,8 +6,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: red;
+    background-color: #121212;
     z-index: 2;
+    color: white;
 }
 
 .sidebar-ul{
@@ -26,9 +27,15 @@
 }
   
 .sidebar-li a{
-    color: black;
+    color: white;
 }
 
 .sidebar-li:hover{
-    background-color: lightcoral;
+    background-color: #1F1B24;
+    cursor: pointer;
+}
+
+.sidebar-div{
+    font-size: 24px;
+    margin-top: 20%;
 }

@@ -5,7 +5,7 @@ function Sidebar() {
     return (
         <nav id = "sidebar">
             <div className="sidebar-div">
-                USER INFO
+                <strong>Choose your Room</strong>
             </div>
             <ul className = "sidebar-ul">
                 <li className = "sidebar-li">

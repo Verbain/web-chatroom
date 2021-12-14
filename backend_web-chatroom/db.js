@@ -1,5 +1,5 @@
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { collection, getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
+const { initializeApp, cert } = require('firebase-admin/app');
+const { getFirestore } = require('firebase-admin/firestore');
 const config = require('./config');
 const serviceAccount = require("./web-chatroom.json");
 
@@ -20,7 +20,4 @@ const db = initializeApp({
 
 //const db = initializeApp(config.firebaseConfig);
 
-module.exports = { 
-    getFirestore,
-    collection
-}
+module.exports = getFirestore();
