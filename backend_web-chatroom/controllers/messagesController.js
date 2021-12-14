@@ -8,13 +8,13 @@ const sendMessage = async (req,res,next) =>{
     message = req.body.message
     createdAt = req.body.createdAt
     room = req.params.room
-    console.log(pseudo,message,createdAt,room)
     const collectionRef = db.collection(`/rooms/${room}/messages`)
     await collectionRef.add({
         name:pseudo,
         text:message,
         createdAt: createdAt
     });
+    res.status(201).json({response:"message send to the chat room " + room})
 }
 
 module.exports = {
